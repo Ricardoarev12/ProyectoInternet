@@ -5,6 +5,7 @@
   <title>FAQ y Contacto - TechnoStore</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/FAQ.css">
 
 <body>
   <header>
@@ -30,17 +31,42 @@
   </header>
 
   <main>
-    <h2>FAQ</h2>
-    <p>Aqui estaran las preguntas de los usuarios.</p>
+  <section class="faq-section">
+    <h2>Preguntas Frecuentes</h2>
 
-    <h2>Contacto</h2>
+    <div class="faq-item">
+      <h3>¿Cómo puedo realizar una compra?</h3>
+      <p>Puedes navegar por nuestros productos, seleccionar los que te interesen y agregarlos a tu carrito. Luego, dirígete al carrito para completar tu pedido.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Qué métodos de pago aceptan?</h3>
+      <p>Aceptamos tarjetas de crédito, débito, transferencias bancarias y pagos por plataformas seguras.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Hacen envíos internacionales?</h3>
+      <p>Sí, realizamos envíos a la mayoría de los países. Los costos de envío se calculan automáticamente al finalizar la compra.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Contáctanos</h2>
     <form>
-      <label>Nombre: <input type="text"></label><br><br>
-      <label>Correo: <input type="email"></label><br><br>
-      <label>Mensaje: <textarea></textarea></label><br><br>
+      <label>Nombre</label>
+      <input type="text" placeholder="Tu nombre" required>
+
+      <label>Correo electrónico</label>
+      <input type="email" placeholder="correo@ejemplo.com" required>
+
+      <label>Mensaje</label>
+      <textarea rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
       <button type="submit">Enviar</button>
     </form>
-  </main>
+  </section>
+</main>
+
 
   <footer>
     <p>© 2025 TechnoStore</p>
