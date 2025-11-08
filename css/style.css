@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f5f0;
+  color: #333;
+}
+
+
+header {
+  background-color: steelblue;
+  color: #f8f5f0;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.header-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.carrito-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  z-index: 11;
+}
+
+.carrito-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  margin: 0;
+}
