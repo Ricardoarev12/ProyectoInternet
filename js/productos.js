@@ -1,8 +1,3 @@
-// =============================================
-// PRODUCTOS - CLASE, ARREGLO E insertAdjacentHTML
-// =============================================
-
-// Clase Producto
 class Producto {
     constructor(id, nombre, precio, descripcion) {
         this.id = id;
@@ -11,7 +6,6 @@ class Producto {
         this.descripcion = descripcion;
     }
 
-    // Método para generar HTML del producto
     generarHTML() {
         return `
             <div class="producto-item" data-id="${this.id}">
@@ -32,7 +26,6 @@ class Producto {
     }
 }
 
-// Arreglo de 5 productos
 const productos = [
     new Producto(1, "Laptop Gaming", 1299.99, "Laptop con procesador Intel i7, 16GB RAM y tarjeta gráfica dedicada."),
     new Producto(2, "Smartphone Samsung Galaxy", 699.99, "Smartphone con pantalla AMOLED de 6.7 pulgadas y cámara de 108MP."),
@@ -41,25 +34,20 @@ const productos = [
     new Producto(5, "Tablet Pro", 549.99, "Tablet de 12.4 pulgadas con 128GB de almacenamiento.")
 ];
 
-// Función para cargar productos usando insertAdjacentHTML
 function cargarProductos() {
     const listaProductos = document.querySelector('.lista-productos');
     
     if (listaProductos) {
-        // Limpiar contenido existente
         listaProductos.innerHTML = '';
         
-        // Agregar cada producto con insertAdjacentHTML
         productos.forEach(producto => {
             listaProductos.insertAdjacentHTML('beforeend', producto.generarHTML());
         });
         
-        // Agregar eventos a los botones
         agregarEventos();
     }
 }
 
-// Función para agregar eventos a los botones
 function agregarEventos() {
     const botones = document.querySelectorAll('.btn-agregar');
     
@@ -73,7 +61,6 @@ function agregarEventos() {
             
             agregarAlCarrito(id, nombre, precio, cantidad);
             
-            // Cambiar texto del botón temporalmente
             this.textContent = '¡Agregado!';
             setTimeout(() => {
                 this.textContent = 'Agregar al carrito';
@@ -82,11 +69,9 @@ function agregarEventos() {
     });
 }
 
-// Función para agregar al carrito (usa localStorage)
 function agregarAlCarrito(id, nombre, precio, cantidad) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     
-    // Buscar si ya existe el producto
     const existe = carrito.find(item => item.id === id);
     
     if (existe) {
@@ -99,7 +84,6 @@ function agregarAlCarrito(id, nombre, precio, cantidad) {
     alert(`${nombre} agregado al carrito`);
 }
 
-// Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     cargarProductos();
 });

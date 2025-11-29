@@ -1,7 +1,3 @@
-// =============================================
-// COLABORADORES CON API PARA IMÁGENES
-// =============================================
-
 document.addEventListener('DOMContentLoaded', function() {
     const main = document.querySelector('main');
     const h2 = main ? main.querySelector('h2') : null;
@@ -11,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Función para cargar colaboradores usando API
 async function cargarColaboradores() {
     const main = document.querySelector('main');
     
@@ -22,11 +17,8 @@ async function cargarColaboradores() {
     `;
     
     try {
-        // Usar RandomUser API para obtener fotos
         const response = await fetch('https://randomuser.me/api/?results=6&nat=es');
         const data = await response.json();
-        
-        // Datos de colaboradores (nombres de empresas ficticias)
         const empresas = [
             { nombre: "TechSolutions", rol: "Proveedor de Hardware" },
             { nombre: "CloudNet", rol: "Servicios en la Nube" },
@@ -57,7 +49,6 @@ async function cargarColaboradores() {
         main.innerHTML = html;
         
     } catch (error) {
-        // Si falla la API, mostrar colaboradores sin foto
         main.innerHTML = `
             <h2>Nuestros Colaboradores</h2>
             <p class="intro-colaboradores">Trabajamos con los mejores aliados.</p>

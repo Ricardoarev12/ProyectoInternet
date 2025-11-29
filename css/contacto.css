@@ -1,7 +1,3 @@
-/* =============================================
-   CSS PARA VALIDACIÓN DEL FORMULARIO
-   ============================================= */
-
 .contact-section input.error,
 .contact-section textarea.error {
     border-color: #dc3545;

@@ -1,7 +1,3 @@
-/* =============================================
-   CSS PARA EL CARRUSEL DE INICIO
-   ============================================= */
-
 .carrusel {
     width: 100%;
     overflow: hidden;
@@ -11,11 +7,26 @@
 
 .carrusel-track {
     display: flex;
-    transition: transform 0.5s ease;
     gap: 20px;
+    animation: mover 15s linear infinite;
 }
 
 .carrusel .producto-card {
     min-width: 200px;
     flex-shrink: 0;
+}
+
+/* Animación del carrusel */
+@keyframes mover {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1100px);
+    }
+}
+
+/* Pausar animación al pasar el mouse */
+.carrusel:hover .carrusel-track {
+    animation-play-state: paused;
 }

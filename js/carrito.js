@@ -1,18 +1,12 @@
-// =============================================
-// CARRITO FUNCIONAL
-// =============================================
-
 document.addEventListener('DOMContentLoaded', function() {
     const main = document.querySelector('main');
     const h2 = main ? main.querySelector('h2') : null;
-    
-    // Verificar si estamos en la página del carrito
+
     if (h2 && h2.textContent.includes('carrito')) {
         mostrarCarrito();
     }
 });
 
-// Función para mostrar el carrito
 function mostrarCarrito() {
     const main = document.querySelector('main');
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -55,8 +49,7 @@ function mostrarCarrito() {
         });
         
         html += '</div>';
-        
-        // Resumen
+
         const iva = subtotal * 0.16;
         const total = subtotal + iva;
         
@@ -72,48 +65,39 @@ function mostrarCarrito() {
     }
     
     main.innerHTML = html;
-    
-    // Agregar eventos
+
     agregarEventosCarrito();
 }
 
-// Función para agregar eventos del carrito
 function agregarEventosCarrito() {
-    // Botones de incrementar
     document.querySelectorAll('.btn-mas').forEach(btn => {
         btn.addEventListener('click', function() {
             cambiarCantidad(parseInt(this.dataset.id), 1);
         });
     });
-    
-    // Botones de decrementar
     document.querySelectorAll('.btn-menos').forEach(btn => {
         btn.addEventListener('click', function() {
             cambiarCantidad(parseInt(this.dataset.id), -1);
         });
     });
-    
-    // Botones de eliminar
+
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
         btn.addEventListener('click', function() {
             eliminarProducto(parseInt(this.dataset.id));
         });
     });
-    
-    // Botón vaciar carrito
+
     const btnVaciar = document.getElementById('btn-vaciar');
     if (btnVaciar) {
         btnVaciar.addEventListener('click', vaciarCarrito);
     }
-    
-    // Botón comprar
+
     const btnComprar = document.getElementById('btn-comprar');
     if (btnComprar) {
         btnComprar.addEventListener('click', finalizarCompra);
     }
 }
 
-// Función para cambiar cantidad
 function cambiarCantidad(id, cambio) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const producto = carrito.find(item => item.id === id);
@@ -130,7 +114,6 @@ function cambiarCantidad(id, cambio) {
     }
 }
 
-// Función para eliminar producto
 function eliminarProducto(id) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito = carrito.filter(item => item.id !== id);
@@ -138,7 +121,6 @@ function eliminarProducto(id) {
     mostrarCarrito();
 }
 
-// Función para vaciar carrito
 function vaciarCarrito() {
     if (confirm('¿Estás seguro de vaciar el carrito?')) {
         localStorage.removeItem('carrito');
@@ -146,7 +128,6 @@ function vaciarCarrito() {
     }
 }
 
-// Función para finalizar compra
 function finalizarCompra() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     
