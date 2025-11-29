@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (h2 && h2.textContent.includes('carrito')) {
         mostrarCarrito();
     }
-    
-    actualizarContador();
 });
 
 // Función para mostrar el carrito
@@ -129,7 +127,6 @@ function cambiarCantidad(id, cambio) {
         
         localStorage.setItem('carrito', JSON.stringify(carrito));
         mostrarCarrito();
-        actualizarContador();
     }
 }
 
@@ -139,7 +136,6 @@ function eliminarProducto(id) {
     carrito = carrito.filter(item => item.id !== id);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarCarrito();
-    actualizarContador();
 }
 
 // Función para vaciar carrito
@@ -147,7 +143,6 @@ function vaciarCarrito() {
     if (confirm('¿Estás seguro de vaciar el carrito?')) {
         localStorage.removeItem('carrito');
         mostrarCarrito();
-        actualizarContador();
     }
 }
 
@@ -162,26 +157,5 @@ function finalizarCompra() {
         alert(`¡Compra realizada con éxito!\nTotal: $${total.toFixed(2)}\n\nGracias por tu compra.`);
         localStorage.removeItem('carrito');
         mostrarCarrito();
-        actualizarContador();
-    }
-}
-
-// Función para actualizar contador
-function actualizarContador() {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const total = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    
-    let contador = document.querySelector('.carrito-contador');
-    const carritoIcon = document.querySelector('.carrito-icon');
-    
-    if (carritoIcon && !contador) {
-        contador = document.createElement('span');
-        contador.className = 'carrito-contador';
-        carritoIcon.appendChild(contador);
-    }
-    
-    if (contador) {
-        contador.textContent = total;
-        contador.style.display = total > 0 ? 'block' : 'none';
     }
 }

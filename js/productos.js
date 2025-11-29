@@ -96,32 +96,10 @@ function agregarAlCarrito(id, nombre, precio, cantidad) {
     }
     
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarContador();
     alert(`${nombre} agregado al carrito`);
-}
-
-// Función para actualizar contador del carrito
-function actualizarContador() {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const total = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    
-    let contador = document.querySelector('.carrito-contador');
-    const carritoIcon = document.querySelector('.carrito-icon');
-    
-    if (carritoIcon && !contador) {
-        contador = document.createElement('span');
-        contador.className = 'carrito-contador';
-        carritoIcon.appendChild(contador);
-    }
-    
-    if (contador) {
-        contador.textContent = total;
-        contador.style.display = total > 0 ? 'block' : 'none';
-    }
 }
 
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     cargarProductos();
-    actualizarContador();
 });
