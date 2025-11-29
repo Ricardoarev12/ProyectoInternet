@@ -1,0 +1,162 @@
+========================================================
+EXPLICACIÓN DEL PROYECTO TECHNOSTORE - JAVASCRIPT Y CSS
+========================================================
+
+Este documento explica qué se hizo con el JavaScript y CSS del proyecto.
+
+
+-----------------------------------------------------------
+1. CARRUSEL DE PRODUCTOS (index.html)
+-----------------------------------------------------------
+
+ARCHIVO JS: js/carousel.js
+
+¿Qué hace?
+- Crea un arreglo con 5 productos (nombre, precio, imagen)
+- Genera dinámicamente las tarjetas de productos en el DOM
+- Implementa un carrusel automático que se mueve cada 3 segundos
+- Se removieron los botones de "Comprar" como se solicitó
+
+ARCHIVO CSS: css/carousel.css
+
+¿Qué hace?
+- Estiliza el contenedor del carrusel con overflow hidden
+- El track del carrusel usa flexbox y transición suave
+- Las tarjetas tienen ancho mínimo fijo para el desplazamiento
+
+
+-----------------------------------------------------------
+2. PRODUCTOS CON CLASE Y ARREGLO (productos.html)
+-----------------------------------------------------------
+
+ARCHIVO JS: js/productos.js
+
+¿Qué hace?
+- Define una CLASE "Producto" con propiedades: id, nombre, precio, descripcion
+- La clase tiene un método "generarHTML()" que retorna el HTML del producto
+- Crea un ARREGLO con 5 objetos Producto
+- Usa "insertAdjacentHTML('beforeend', ...)" para agregar cada producto al DOM
+- Incluye botones para agregar al carrito con eventos click
+- Los productos NO tienen imágenes (como se solicitó para simplificar)
+
+ARCHIVO CSS: css/productos.css
+
+¿Qué hace?
+- Estiliza la lista de productos en formato vertical
+- Cada producto tiene fondo blanco, sombra y border-radius
+- Botones con estilo steelblue que cambian al hacer hover
+
+
+-----------------------------------------------------------
+3. CARRITO FUNCIONAL (carrito.html)
+-----------------------------------------------------------
+
+ARCHIVO JS: js/carrito.js
+
+¿Qué hace?
+- Usa localStorage para guardar los productos del carrito
+- Muestra lista de productos con: nombre, precio unitario, cantidad, subtotal
+- Botones para aumentar (+) y disminuir (-) cantidad
+- Botón para eliminar producto individual
+- Calcula subtotal, IVA (16%) y total
+- Botón "Finalizar compra" que muestra alert de confirmación
+- Botón "Vaciar carrito" con confirmación
+- Si el carrito está vacío, muestra mensaje y link a productos
+
+ARCHIVO CSS: css/carrito.css
+
+¿Qué hace?
+- Estiliza los items del carrito en formato de tarjeta
+- Botones de cantidad con estilo circular
+- Resumen de compra en tarjeta separada
+- Contador rojo en el ícono del carrito (muestra cantidad de productos)
+
+
+-----------------------------------------------------------
+4. FORMULARIO DE CONTACTO CON VALIDACIÓN (FAQ.html)
+-----------------------------------------------------------
+
+ARCHIVO JS: js/contacto.js
+
+¿Qué hace?
+- Valida el formulario con EXPRESIONES REGULARES:
+  
+  * Nombre: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/
+    Solo letras y espacios, mínimo 2 caracteres
+  
+  * Correo: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    Formato de email válido (algo@dominio.extension)
+  
+  * Mensaje: /^.{10,}$/
+    Mínimo 10 caracteres
+
+- Si hay errores, muestra mensaje debajo de cada campo
+- Si todo es válido, muestra alert: "¡Pregunta enviada correctamente!"
+- Limpia el formulario después de enviar exitosamente
+
+ARCHIVO CSS: css/contacto.css
+
+¿Qué hace?
+- Campos con error tienen borde rojo y fondo rosa claro
+- Mensajes de error en color rojo debajo de cada campo
+
+
+-----------------------------------------------------------
+5. COLABORADORES CON API (colaboradores.html)
+-----------------------------------------------------------
+
+ARCHIVO JS: js/colaboradores.js
+
+¿Qué hace?
+- Usa la API gratuita "randomuser.me" para obtener fotos de personas
+- Crea tarjetas de colaboradores con: foto, nombre de empresa, rol, representante
+- Si la API falla, muestra versión alternativa con placeholders
+- Las fotos son circulares con borde steelblue
+
+ARCHIVO CSS: css/colaboradores.css
+
+¿Qué hace?
+- Grid responsive para las tarjetas de colaboradores
+- Tarjetas con fondo blanco, sombra y efecto hover
+- Fotos circulares con borde
+- Placeholder con iniciales si no hay foto
+
+
+-----------------------------------------------------------
+ESTRUCTURA DE ARCHIVOS
+-----------------------------------------------------------
+
+technostore/
+├── index.html
+├── productos.html
+├── carrito.html
+├── FAQ.html
+├── colaboradores.html
+├── css/
+│   ├── style.css        (estilos generales)
+│   ├── index.css        (estilos página inicio)
+│   ├── productos.css    (estilos lista productos)
+│   ├── carrito.css      (estilos carrito)
+│   ├── carousel.css     (estilos carrusel)
+│   ├── FAQ.css          (estilos FAQ y contacto)
+│   ├── contacto.css     (estilos validación)
+│   └── colaboradores.css (estilos colaboradores)
+├── js/
+│   ├── carousel.js      (carrusel automático)
+│   ├── productos.js     (clase y arreglo productos)
+│   ├── carrito.js       (funcionalidad carrito)
+│   ├── contacto.js      (validación con regex)
+│   └── colaboradores.js (API para imágenes)
+└── imagenes/
+    └── carritoDeCompras.png (ícono del carrito)
+
+
+-----------------------------------------------------------
+NOTAS IMPORTANTES
+-----------------------------------------------------------
+
+- El carrito usa localStorage, por lo que los datos persisten al cerrar el navegador
+- Los productos se cargan dinámicamente con JavaScript, no están en el HTML
+- La validación del formulario se hace con JavaScript, no con HTML5
+- La API de colaboradores es gratuita y no requiere API key
+- Todo el código es básico y fácil de entender

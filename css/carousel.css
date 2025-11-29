@@ -1,0 +1,21 @@
+/* =============================================
+   CSS PARA EL CARRUSEL DE INICIO
+   ============================================= */
+
+.carrusel {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.carrusel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+}
+
+.carrusel .producto-card {
+    min-width: 200px;
+    flex-shrink: 0;
+}
